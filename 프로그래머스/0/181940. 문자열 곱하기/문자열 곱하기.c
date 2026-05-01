@@ -6,22 +6,14 @@
 char* solution(const char* my_string, int k) {
     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
     char* answer = (char*)malloc(strlen(my_string) * k + 1);
-
     
-    // 두 번 섹션부터 채워넣기.
-    
-
-    
-    for(int i = 0; i < strlen(my_string); i++ ) {
-        
-        for(int j = 0; j < k; j++) 
-        {
-            answer[i + j * (strlen(my_string))] = my_string[i];
+    for(int i = 0; i < strlen(my_string); i++) {
+        for(int j = 0; j < k; j++) {
+            answer[i + j * strlen(my_string)] = my_string[i];
         }
     }
     
-    answer[k * strlen(my_string)] = '\0';
-    
-    
+    answer[strlen(my_string) * k] = '\0';
+
     return answer;
 }
